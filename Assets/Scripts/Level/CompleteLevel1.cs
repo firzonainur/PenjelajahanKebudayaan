@@ -1,0 +1,14 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class CompleteLevel1 : MonoBehaviour
+{
+	public int levelToUnlock = 2;
+
+	public void Continue()
+	{
+		PlayerPrefs.SetInt("levelReached", levelToUnlock);
+	}
+
+}
