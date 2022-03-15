@@ -8,6 +8,7 @@ TagManager:
   - Enemy
   - CheckPoint
   - Item
+  - Keris
   layers:
   - Default
   - TransparentFX

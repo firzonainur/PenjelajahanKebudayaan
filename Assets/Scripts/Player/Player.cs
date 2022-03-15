@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityStandardAssets.CrossPlatformInput;
 
 public class Player : MonoBehaviour
 {
@@ -31,7 +32,7 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-        move = Input.GetAxis("Horizontal"); //isi variabel move denngan inputan
+        move = CrossPlatformInputManager.GetAxis("Horizontal"); //isi variabel move denngan inputan
 
         rb.velocity = new Vector2(move * playerSpeed, rb.velocity.y); // membuat objek
 
@@ -45,13 +46,13 @@ public class Player : MonoBehaviour
             transform.eulerAngles = new Vector3(0, 0, 0);
         }
 
-        if (Input.GetKeyDown("space") && !isJumping)
+        if (CrossPlatformInputManager.GetButtonDown("Jump") && !isJumping)
         {
             rb.AddForce(new Vector2(rb.velocity.x, jumpPower));
             isJumping = true;
         }
 
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (CrossPlatformInputManager.GetButtonDown("Shoot"))
         {
             Instantiate(weapon, posWeapon.transform.position, posWeapon.transform.rotation);
             Instantiate(effectWeapon, posWeapon.transform.position, posWeapon.transform.rotation);
